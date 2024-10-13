@@ -1,6 +1,7 @@
 
 export const formatCurrency = (amount) => {
-  return (amount / 100).toLocaleString('en-US', {
+  if (!amount || isNaN(amount)) return '$0.00';  // Handle null, undefined, and NaN cases
+  return amount.toLocaleString('en-US', {
     style: 'currency',
     currency: 'USD',
   });
